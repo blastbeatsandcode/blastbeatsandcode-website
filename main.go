@@ -4,19 +4,24 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-)
+	"time"
 
-func handler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "<h1>Blast Beats and Code</h1>"+
-		"<p>The strange endeavors of a nerdy computer scientist who also likes really bad music.</p>")
-}
+	"github.com/blastbeatsandcode/blastbeatsandcode-website/routes"
+)
 
 func main() {
 
 	// Register and handle home
-	http.HandleFunc("/", handler)
+	r := routes.Routes()
+
 	fmt.Println("Starting Server...")
 
-	// Serve Project
-	log.Fatal(http.ListenAndServe(":80", nil))
+	// Connect to database and serve project
+	srv := &http.Server{
+		Handler:      r,
+		Addr:         ":8080",
+		WriteTimeout: 60 * time.Second,
+		ReadTimeout:  60 * time.Second,
+	}
+	log.Fatal(srv.ListenAndServe())
 }

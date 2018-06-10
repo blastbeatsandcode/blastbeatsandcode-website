@@ -1,0 +1,67 @@
+/* Custom CSS */
+
+a {
+    color: rgb(166, 126, 13);
+}
+
+a:hover {
+    text-decoration: none;
+    color: rgb(105, 101, 37);
+}
+
+.banner {
+    background-color: rgb(168, 187, 185);
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+
+.banner h1, h1 a, h1 a:hover {
+    font-family: 'Abel', serif;
+    color: black;
+}
+
+body {
+    font-family: 'Arvo', serif;
+}
+
+.jumbotron {
+    background-color: slategray;
+}
+
+footer {
+    background-color: #272727;
+    text-align: center;
+    padding: 25px;
+    color: gray;
+}
+
+footer a {
+    color: white;
+}
+
+h1, h2, h3 {
+    font-family: 'Abel', serif;
+}
+
+nav {
+    background-color: rgb(44, 93, 97);
+    padding: 25px;
+}
+
+.social, .social h2 {
+    width: 100%;
+    text-align: center;
+}
+
+.social i {
+    padding: 5rem;
+}
+
+.social a {
+    color: black;
+}
+
+.social a:hover {
+    color: inherit;
+}
