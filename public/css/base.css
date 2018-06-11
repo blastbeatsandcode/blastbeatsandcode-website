@@ -6,13 +6,22 @@ a {
 
 a:hover {
     text-decoration: none;
-    color: rgb(105, 101, 37);
+    color: rgb(60, 100, 120);
 }
 
 .banner {
-    background-color: rgb(168, 187, 185);
-    padding-top: 15px;
-    padding-bottom: 15px;
+    background-color: rgb(62, 96, 111);
+    background-image: url('');
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    color: white;
+    padding-bottom: 100px;
+}
+
+.banner #title, .banner #title a {
+    font-size: 64pt;
+    color: white;
 }
 
 
@@ -22,11 +31,7 @@ a:hover {
 }
 
 body {
-    font-family: 'Arvo', serif;
-}
-
-.jumbotron {
-    background-color: slategray;
+    font-family: 'Fira Sans', sans-serif;
 }
 
 footer {
@@ -44,18 +49,26 @@ h1, h2, h3 {
     font-family: 'Abel', serif;
 }
 
+/*
 nav {
     background-color: rgb(44, 93, 97);
     padding: 25px;
+}
+*/
+
+.nav-link {
+    text-transform: uppercase;
 }
 
 .social, .social h2 {
     width: 100%;
     text-align: center;
+    padding-bottom: 2rem;
+    padding-top: 2rem;
 }
 
 .social i {
-    padding: 5rem;
+    padding: 0, 5rem, 0, 5rem;
 }
 
 .social a {
@@ -63,5 +76,16 @@ nav {
 }
 
 .social a:hover {
-    color: inherit;
+    color: rgb(60, 100, 120);
+}
+
+
+/* MOBILE STYLES */
+
+
+@media only screen and (max-width: 768px) {
+    .banner #title, .banner #title a {
+        font-size: 42pt;
+        color: black;
+    }
 }

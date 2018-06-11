@@ -14,6 +14,7 @@ func main() {
 	// Register and handle home
 	r := routes.Routes()
 
+	// Print out something to the screen so we know that the server is starting
 	fmt.Println("Starting Server...")
 
 	// Connect to database and serve project
