@@ -1,11 +1,11 @@
 package controllers
 
 import (
-	"fmt"
 	"net/http"
 )
 
+/* ProjectsHandler serves the projects page */
 func ProjectsHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "<h1>Blast Beats and Code :: Projects</h1>"+
-		"<p>The strange endeavors of a nerdy developer who also likes really bad music.</p>")
+	err := tpl.Get("projects").ExecuteTemplate(w, "base-tpl", nil)
+	checkErr(err)
 }

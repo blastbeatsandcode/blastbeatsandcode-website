@@ -1,11 +1,11 @@
 package controllers
 
 import (
-	"fmt"
 	"net/http"
 )
 
+/* LoginHandler serves the login page */
 func LoginHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "<h1>Blast Beats and Code :: Login</h1>"+
-		"<p>The strange endeavors of a nerdy developer who also likes really bad music.</p>")
+	err := tpl.Get("login").ExecuteTemplate(w, "base-tpl", nil)
+	checkErr(err)
 }

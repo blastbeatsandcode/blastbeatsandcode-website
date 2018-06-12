@@ -1,11 +1,11 @@
 package controllers
 
 import (
-	"html/template"
 	"net/http"
 )
 
+/* HomeHandler serves the index page */
 func HomeHandler(w http.ResponseWriter, r *http.Request) {
-	tmpl := template.Must(template.ParseFiles("templates/index.gohtml"))
-	tmpl.Execute(w, nil)
+	err := tpl.Get("index").ExecuteTemplate(w, "base-tpl", nil)
+	checkErr(err)
 }
