@@ -15,9 +15,9 @@ Blog - Blast Beats and Code | Software and Game Developer Alex Silcott
     {{range $i, $post := .Posts}}
     <div style="padding-bottom: 3rem;">
         <h1>{{$post.Title}}</h1>
-        <p>{{$post.Content}}</p>
-        <p><strong>{{$post.Date}} - {{$post.Author}}</strong></p>
-        <hr>
+        <p>{{noescape $post.Content}}</p>
+        <hr />
+        <p style="text-align: right;"><strong>{{$post.Date}} - {{$post.Author}}</strong></p>
     </div>
     {{end}}
 
