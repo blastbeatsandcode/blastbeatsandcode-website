@@ -129,7 +129,7 @@ func (r *Reloader) reload(name string) error {
 	}
 
 	// Check for base templates to be reloaded so all template paths are reparsed to update across the board
-	if name == "base.gohtml" || name == "nav.gohtml" {
+	if name == "base.gohtml" || name == "nav.gohtml" || name == "social.gohtml" {
 		var err error
 
 		// Reload all with the updated "base".
@@ -158,5 +158,5 @@ func parsedTemplates(fileName string) *template.Template {
 	// In this return statement, we also assign any functions we want to be able to pass to the templates
 	// This will help us to unescape HTML given from sources other than the templates that we want parsed
 	return template.Must(template.New("").Funcs(template.FuncMap{"noescape": utils.Noescape}).
-		ParseFiles(pref+fileName, pref+"base.gohtml", pref+"nav.gohtml"))
+		ParseFiles(pref+fileName, pref+"base.gohtml", pref+"nav.gohtml", pref+"social.gohtml"))
 }

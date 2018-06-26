@@ -1,27 +1,24 @@
+{{define "title-tpl"}}
+Blog - Blast Beats and Code | Software and Game Developer Alex Silcott
+{{end}}
+
 {{define "banner-tpl"}}
-<div class="banner">
+<div class="banner-other">
     <div class="container">
-        <span id="title">Blog</span>
+        <span id="title">Latest Posts</span>
     </div>
 </div>
 {{end}}
 
 {{define "content-tpl"}}
-<content>
-  <div class="container">
-  <br />
-    <h1>This website is being built</h1>
-    <p>But I'm keeping it <a href="https://github.com/blastbeatsandcode/blastbeatsandcode-website">open source</a>!</p><br /><br /><br /><br />
-  </div>
-  <div class="social">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-3 my-auto"><h1>Connect</h1></div>
-        <div class="col-sm-3 my-auto"><a href="https://github.com/blastbeatsandcode" target="_blank"><i class="fab fa-github fa-5x"></i></a></div>
-        <div class="col-sm-3 my-auto"><a href="https://twitter.com/blastbeatsncode" target="_blank"><i class="fab fa-twitter fa-5x"></i></a></div>
-        <div class="col-sm-3 my-auto"><a href="https://www.discogs.com/user/blastbeatsandcode" target="_blank"><i class="fas fa-compact-disc fa-5x"></i></a></div>
-      </div>
+
+    {{range $i, $post := .Posts}}
+    <div style="padding-bottom: 3rem;">
+        <h1>{{$post.Title}}</h1>
+        <p>{{$post.Content}}</p>
+        <p><strong>{{$post.Date}} - {{$post.Author}}</strong></p>
+        <hr>
     </div>
-  </div>
-</content>
+    {{end}}
+
 {{end}}
