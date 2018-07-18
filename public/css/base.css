@@ -11,16 +11,17 @@ a:hover {
 
 .banner {
     background-color: rgb(62, 96, 111);
-    background-image: url('');
+    background-image: url('/public/img/flyguys.png');
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
     color: white;
     padding-bottom: 100px;
+    min-height: 200px;
 }
 
 .banner #title, .banner #title a {
-    font-size: 64pt;
+    font-size: 48pt;
     color: white;
     font-family: 'Abel', serif;
 }
@@ -119,7 +120,7 @@ h1, h2, h3 {
 @media only screen and (max-width: 768px) {
     .banner #title, .banner #title a {
         font-size: 42pt;
-        color: black;
+        color: white;
     }
 
     .navbar-brand {
