@@ -39,19 +39,29 @@ func Routes() *mux.Router {
 	projectRoute.PathPrefix("/public/img/").Handler(http.StripPrefix("/public/img/", http.FileServer(http.Dir("./public/img/"))))
 	projectRoute.PathPrefix("/public/js/").Handler(http.StripPrefix("/public/js/", http.FileServer(http.Dir("./public/js/"))))
 
-	// Register Contact
-	contactRoute := r.PathPrefix("/contact").Subrouter()
-	contactRoute.HandleFunc("", controllers.ContactHandler)
-	contactRoute.PathPrefix("/public/css/").Handler(http.StripPrefix("/public/css/", http.FileServer(http.Dir("./public/css/"))))
-	contactRoute.PathPrefix("/public/img/").Handler(http.StripPrefix("/public/img/", http.FileServer(http.Dir("./public/img/"))))
-	contactRoute.PathPrefix("/public/js/").Handler(http.StripPrefix("/public/js/", http.FileServer(http.Dir("./public/js/"))))
+	// Register About
+	aboutRoute := r.PathPrefix("/about").Subrouter()
+	aboutRoute.HandleFunc("", controllers.AboutHandler)
+	aboutRoute.PathPrefix("/public/css/").Handler(http.StripPrefix("/public/css/", http.FileServer(http.Dir("./public/css/"))))
+	aboutRoute.PathPrefix("/public/img/").Handler(http.StripPrefix("/public/img/", http.FileServer(http.Dir("./public/img/"))))
+	aboutRoute.PathPrefix("/public/js/").Handler(http.StripPrefix("/public/js/", http.FileServer(http.Dir("./public/js/"))))
 
-	// Register Login
+	// Register Edit
+	editRoute := r.PathPrefix("/edit").Subrouter()
+	editRoute.HandleFunc("", controllers.EditHandler)
+	editRoute.PathPrefix("/public/css/").Handler(http.StripPrefix("/public/css/", http.FileServer(http.Dir("./public/css/"))))
+	editRoute.PathPrefix("/public/img/").Handler(http.StripPrefix("/public/img/", http.FileServer(http.Dir("./public/img/"))))
+	editRoute.PathPrefix("/public/js/").Handler(http.StripPrefix("/public/js/", http.FileServer(http.Dir("./public/js/"))))
+
+	// Register Login, this one has a POST and a GET because we use a form
 	loginRoute := r.PathPrefix("/login").Subrouter()
-	loginRoute.HandleFunc("", controllers.LoginHandler)
+	loginRoute.HandleFunc("", controllers.AuthGetHandler).Methods("GET")
+	loginRoute.HandleFunc("", controllers.AuthPostHandler).Methods("POST")
 	loginRoute.PathPrefix("/public/css/").Handler(http.StripPrefix("/public/css/", http.FileServer(http.Dir("./public/css/"))))
 	loginRoute.PathPrefix("/public/img/").Handler(http.StripPrefix("/public/img/", http.FileServer(http.Dir("./public/img/"))))
 	loginRoute.PathPrefix("/public/js/").Handler(http.StripPrefix("/public/js/", http.FileServer(http.Dir("./public/js/"))))
+
+	// TODO: Add a logout route
 
 	return r
 }

@@ -11,6 +11,8 @@ import (
 /* BlogHandler serves the blog page */
 func BlogHandler(w http.ResponseWriter, r *http.Request) {
 	db := utils.GetDB()
+	defer db.Close()
+
 	m := getBlogPosts(db)
 
 	err := tpl.Get("blog").ExecuteTemplate(w, "base-tpl", m)

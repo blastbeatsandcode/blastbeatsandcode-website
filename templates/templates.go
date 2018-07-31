@@ -38,8 +38,9 @@ func GetTemplates() Reloader {
 		"index":    parsedTemplates("index"),
 		"projects": parsedTemplates("projects"),
 		"blog":     parsedTemplates("blog"),
-		"contact":  parsedTemplates("contact"),
+		"about":    parsedTemplates("about"),
 		"login":    parsedTemplates("login"),
+		"edit":     parsedTemplates("edit"),
 	}
 
 	return *r

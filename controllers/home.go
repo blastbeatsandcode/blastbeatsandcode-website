@@ -11,6 +11,7 @@ import (
 /* HomeHandler serves the index page */
 func HomeHandler(w http.ResponseWriter, r *http.Request) {
 	db := utils.GetDB()
+	defer db.Close()
 	m := getLatestPost(db)
 
 	err := tpl.Get("index").ExecuteTemplate(w, "base-tpl", m)

@@ -1,11 +1,23 @@
+{{define "title-tpl"}}
+Login - Blast Beats and Code | Software and Game Developer Alex Silcott
+{{end}}
+
 {{define "banner-tpl"}}
-<div class="banner">
+<!--<div class="banner-other">
     <div class="container">
         <span id="title">Login</span>
     </div>
-</div>
+</div>-->
 {{end}}
 
 {{define "content-tpl"}}
-Login content
+<div class="card card-container login mx-auto">
+    <h1 class="text-center white">Login</h1>
+    <form class="form-signin" method="POST">
+        <span id="reauth-email" class="reauth-email"></span>
+        <input type="text" id="username" name="username" class="form-control" placeholder="Username" required autofocus>
+        <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+        <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign in</button>
+    </form>
+</div>
 {{end}}

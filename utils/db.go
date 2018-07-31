@@ -27,6 +27,7 @@ func GetDB() *gorm.DB {
 /* Automigrate database based on the structs in /models */
 func dbSetup(db *gorm.DB) gorm.DB {
 	db.AutoMigrate(&models.BlogPost{})
+	db.AutoMigrate(&models.User{})
 
 	return *db
 }
